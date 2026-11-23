@@ -1,0 +1,33 @@
+{
+  "proyecto": "Encuesta Nacional Bicentenario UC 2026",
+  "fuente": "Economista.cl / IndieLab",
+  "formato": "Apache Parquet",
+  "exportado_utc": "2026-11-23T03:13:55.476003+00:00",
+  "base_original": "bicentenario.sqlite",
+  "tablas": {
+    "respuestas": {
+      "filas": 1594,
+      "columnas": 251,
+      "archivo": "respuestas.parquet",
+      "sha256": "e5c9ee2c4008800a96e3ac1f260061b2fb65360c36cdcdd279235e5769b0b99f"
+    },
+    "variables": {
+      "filas": 251,
+      "columnas": 10,
+      "archivo": "variables.parquet",
+      "sha256": "82cd951dd90e9ee7c63e7d1d326381574d7077daaf644f40ad6a6a0bbd347e81"
+    },
+    "categorias": {
+      "filas": 1564,
+      "columnas": 4,
+      "archivo": "categorias.parquet",
+      "sha256": "6d837c4d1671f7106663d1f01a9c918231f2e423b82c34eba1d793896255050a"
+    },
+    "meta": {
+      "filas": 12,
+      "columnas": 2,
+      "archivo": "meta.parquet",
+      "sha256": "7191ccbcfe61505459a22cd12efd2b422353c849c687e077db734305d8aedba3"
+    }
+  }
+}
