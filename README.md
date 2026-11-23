@@ -10,6 +10,7 @@ Repositorio de distribución de la versión analítica en **Apache Parquet** de 
 .
 ├── README.md
 ├── index.html
+├── verify.py
 └── data/
     ├── respuestas.parquet
     ├── variables.parquet
@@ -29,6 +30,25 @@ Repositorio de distribución de la versión analítica en **Apache Parquet** de 
 | `manifest.json` | — | — | Manifiesto de exportación con dimensiones y huellas SHA-256 de los Parquet. |
 
 Los archivos `.parquet` utilizan compresión **Zstandard (ZSTD)**. El manifiesto permite verificar la integridad de cada archivo después de descargarlo.
+
+### Verificar la integridad de los archivos
+
+El script `verify.py` comprueba los hashes SHA-256 y las dimensiones de los cuatro archivos Parquet contra `data/manifest.json`. También ejecuta controles específicos de esta distribución: las 14 regiones, ausencia del carácter de reemplazo Unicode (` `) en los nombres regionales, y validez del ponderador `POND`.
+
+Requiere Python 3.9 o posterior y PyArrow:
+
+```bash
+python -m pip install pyarrow
+python verify.py
+```
+
+Si el manifiesto está en otra ubicación, puede indicarse explícitamente:
+
+```bash
+python verify.py --manifest data/manifest.json
+```
+
+El verificador es de solo lectura: no modifica ni reescribe los archivos. Termina con código de salida `0` cuando todas las comprobaciones se superan y con un código distinto de cero si detecta un problema.
 
 ## Fuente y descripción del estudio
 
